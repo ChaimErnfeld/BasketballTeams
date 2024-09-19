@@ -10,19 +10,32 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const BASE_URL = "https://nbaserver-q21u.onrender.com/api/filter";
 const table = document.getElementById("table");
-const sectionTeams = document.getElementById("sectionTeams");
+const selectSearch = document.getElementById("selectSearch");
 const pointsInput = document.getElementById("pointsInput");
 const twoPercentInput = document.getElementById("twoPercentInput");
 const threePercentInput = document.getElementById("threePercentInput");
-console.log(sectionTeams.value);
 const addPlayerBtn = document.getElementById("addPlayerBtn");
-const myPlayer = {
-    position: "PG",
-    twoPercent: 4,
-    threePercent: 5,
-    points: 100,
-};
-const requestPlayer = () => { };
+const pointsSpan = document.getElementById("pointsSpan");
+const twoPercentSpan = document.getElementById("twoPercentSpan");
+const threePercentSpan = document.getElementById("threePercentSpan");
+pointsInput.addEventListener("input", () => {
+    pointsSpan.textContent = pointsInput.value;
+});
+twoPercentInput.addEventListener("input", () => {
+    twoPercentSpan.textContent = twoPercentInput.value;
+});
+threePercentInput.addEventListener("input", () => {
+    threePercentSpan.textContent = threePercentInput.value;
+});
+const requestPlayer = () => __awaiter(void 0, void 0, void 0, function* () {
+    const myPlayer = {
+        position: selectSearch.value,
+        twoPercent: +pointsInput.value,
+        threePercent: +threePercentInput.value,
+        points: +pointsInput.value,
+    };
+    return myPlayer;
+});
 function getPlayersApi(player) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -46,8 +59,9 @@ function getPlayersApi(player) {
     });
 }
 const showAllPlayers = () => __awaiter(void 0, void 0, void 0, function* () {
+    const request = yield requestPlayer();
     yield clearTable();
-    yield addDataToTable(getPlayersApi(myPlayer));
+    yield addDataToTable(getPlayersApi(request));
 });
 const addDataToTable = (callback) => __awaiter(void 0, void 0, void 0, function* () {
     const response = yield callback;
@@ -63,41 +77,40 @@ function addedRowToTable(player) {
     let twoPercentCell = newRow.insertCell(3);
     let threePercentPCell = newRow.insertCell(4);
     let actionCell = newRow.insertCell(5);
-    //   let idCell = newRow.insertCell(6);
-    //   let actionsCell = newRow.insertCell(7);
     PlayerNameCell.textContent = player.playerName;
     PositionCell.textContent = player.position;
     PointsCell.textContent = player.points.toString();
     twoPercentCell.textContent = player.twoPercent.toString();
     threePercentPCell.textContent = player.threePercent.toString();
-    //   idCell.textContent = scooter.id!.toString();
     let btnAddPlayer = document.createElement("button");
-    //   let btnDelete = document.createElement("button");
     btnAddPlayer.id = "addPlayerToDivBtn";
-    //   btnDelete.className = "delete-btn";
     btnAddPlayer.textContent = "Add Damian ToCurrent Team";
-    //   btnDelete.textContent = "Delete";
     actionCell.appendChild(btnAddPlayer);
-    //   actionsCell.appendChild(btnDelete);
-    //   deleteScooter(btnDelete, scooter, newRow);
-    //   addEditListener(btnEdit, scooter);
-    //   //בלחיצה על כפתור עריכה
-    //   btnEdit.addEventListener("click", () => {
-    //     rowToEdit = newRow;
-    //     homePage.style.display = "none";
-    //     editPage.style.display = "flex";
-    //     inputs[0].value = nameCell.textContent;
-    //     inputs[1].value = rankCell.textContent;
-    //     inputs[2].value = positionCell.textContent;
-    //     inputs[3].value = platoonCell.textContent;
-    //     editSelectStatus.value = statusCell.textContent;
-    //   });
+    btnAddPlayer.addEventListener("click", () => {
+        playerSelection(player);
+    });
 }
 function clearTable() {
     const rows = table.getElementsByTagName("tr");
     while (rows.length > 1) {
         table.deleteRow(1);
     }
+}
+function playerSelection(player) {
+    const playerCard = document.getElementById(`${player.position}`.toLowerCase());
+    playerCard.innerHTML = "";
+    const p1 = document.createElement("p");
+    const p2 = document.createElement("p");
+    const p3 = document.createElement("p");
+    const p4 = document.createElement("p");
+    playerCard.appendChild(p1);
+    playerCard.appendChild(p2);
+    playerCard.appendChild(p3);
+    playerCard.appendChild(p4);
+    p1.textContent = player.playerName;
+    p2.textContent = `Points: ${player.points.toString()}`;
+    p3.textContent = `Tow Percent: ${player.twoPercent.toString()}%`;
+    p4.textContent = `Three Percent: ${player.threePercent.toString()}%`;
 }
 addPlayerBtn.addEventListener("click", (event) => {
     event.preventDefault();

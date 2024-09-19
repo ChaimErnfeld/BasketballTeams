@@ -8,19 +8,20 @@
   </head>
   <body>
     <main id="main">
+        <div id="title1"><h2>NBA FANTASTY 2014-2024</h2></div>
         <h2>My Fantasy Team</h2>
         <section id="sectionTeams">
-            
-            <div id="pg"> <h3>Point Guard</h3></div>
-            <div id="sg"><h3>Shooting Guard</h3></div>
-            <div id="sf"><h3>Small Forward</h3></div>
-            <div id="pf"><h3>Power Forward</h3></div>
-            <div id="c"><h3>Center</h3></div>
+            <div><h3>Point Guard</h3><div id="pg"> </div></div>
+            <div><h3>Shooting Guard</h3><div id="sg"></div></div>
+            <div><h3>Small Forward</h3><div id="sf"></div></div>
+            <div><h3>Power Forward</h3><div id="pf"></div></div>
+            <div><h3>Center</h3><div id="c"></div></div>
         </section>
         <h2>NBA Player Search</h2>
 
         <section id="sectionData">
             <form id="searchForm" action="">
+                <div>
                 <select name="" id="selectSearch">
                     <option value="PG">PG</option>
                     <option value="SG">SG</option>
@@ -28,16 +29,19 @@
                     <option value="PF">PF</option>
                     <option value="C">C</option>
                       </select>
-                <input type="range" id="pointsInput" name="points" min="0" max="20000" />
+                      <div><span id="pointsSpan">Points</span><input type="range" id="pointsInput" name="points" min="0" max="20000" /></div>
+                <div>
+                    <span id="twoPercentSpan">Field Goal %</span>
                 <input
                     type="range"
                     id="twoPercentInput"
                     name="fieldGoal"
                     min="0"
                     max="100"
-                    />
-                <input type="range" id="threePercentInput" name="3-point" min="0" max="100" />
-                <button id="addPlayerBtn" type="submit">Search Player</button>
+                    /></div>
+                    <div> <span id="threePercentSpan">3-Point %</span><input type="range" id="threePercentInput" name="3-point" min="0" max="100" /></div>
+               
+                <button id="addPlayerBtn" type="submit">Search Player</button></div>
             </form>
             <table id="table">
                 <tr>
