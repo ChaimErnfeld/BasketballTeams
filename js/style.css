@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#main {
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+#sectionTeams {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+h2 {
+  color: #283fa7;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+}
+
+#sectionTeams > div {
+  width: 200px;
+  height: 200px;
+  background-color: #c0bdbd;
+  border: solid 1px black;
+  border-radius: 7px;
+  margin: 67px;
+  padding: 5px;
+}
+
+#sectionTeams > div > h3 {
+  color: #243892;
+  font-size: medium;
+}
+
+#sectionTeams > div > p {
+  margin: 5px;
+}
+
+#sectionData {
+  min-width: 400px;
+  background-color: #d6d4d4;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 7px;
+}
+
+#sectionData > #searchForm {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  /* background-color: #0bda79; */
+  padding: 10px;
+}
+
+#sectionData > #searchForm > select {
+  width: 300px;
+  font-size: 18px;
+  border-radius: 7px;
+  border: 2px solid #ddd;
+}
+
+#sectionData > #searchForm > input {
+  width: 300px;
+
+  /* padding: 10px 20px; */
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 7px;
+  /* margin: 15px; */
+  border: 2px solid #ddd;
+  margin: 7px;
+}
+
+#sectionData > #searchForm > input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+#sectionData > #searchForm > button {
+  padding: 10px 20px;
+  width: 240px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  background-color: #283fa7;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 18px;
+}
+
+#sectionData > #searchForm > button:hover {
+  background-color: #243892;
+}
+
+/* .tableDiv {
+  min-width: 350px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.247);
+  align-items: center;
+  border: solid 1px black;
+  border-radius: 7px;
+  margin-top: 15px;
+  padding: 15px;
+} */
+
+#table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px black;
+  padding: 15px;
+}
+
+#table th,
+#table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#table th {
+  background-color: #c02626;
+  color: white;
+}
+
+#table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table tr:hover {
+  background-color: #ddd;
+}
+
+#addPlayerToDivBtn {
+  background-color: #283fa7;
+  margin: 3px;
+  color: white;
+  padding: 3px;
+  border-radius: 7px;
+  width: 170px;
+}
+
+#addPlayerToDivBtn:hover {
+  background-color: #243892;
+}

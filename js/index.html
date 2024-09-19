@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main id="main">
+        <h2>My Fantasy Team</h2>
+        <section id="sectionTeams">
+            
+            <div id="pg"> <h3>Point Guard</h3></div>
+            <div id="sg"><h3>Shooting Guard</h3></div>
+            <div id="sf"><h3>Small Forward</h3></div>
+            <div id="pf"><h3>Power Forward</h3></div>
+            <div id="c"><h3>Center</h3></div>
+        </section>
+        <h2>NBA Player Search</h2>
+
+        <section id="sectionData">
+            <form id="searchForm" action="">
+                <select name="" id="selectSearch">
+                    <option value="PG">PG</option>
+                    <option value="SG">SG</option>
+                    <option value="SF">SF</option>
+                    <option value="PF">PF</option>
+                    <option value="C">C</option>
+                      </select>
+                <input type="range" id="pointsInput" name="points" min="0" max="20000" />
+                <input
+                    type="range"
+                    id="twoPercentInput"
+                    name="fieldGoal"
+                    min="0"
+                    max="100"
+                    />
+                <input type="range" id="threePercentInput" name="3-point" min="0" max="100" />
+                <button id="addPlayerBtn" type="submit">Search Player</button>
+            </form>
+            <table id="table">
+                <tr>
+                  <th>Player</th>
+                  <th>Position</th>
+                  <th>Points</th>
+                  <th>FG%</th>
+                  <th>3P%</th>
+                  <th>Action</th>
+                </tr>
+                <!-- <tr>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td>a</td>
+                    <td><button id="addPlayerToDivBtn" type="button">Add Damian To <br> Current Team</button></td>
+                </tr> -->
+              </table>
+        </section>
+    <script src="script.js"></script>
+  </body>
+</html>
